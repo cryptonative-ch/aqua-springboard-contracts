@@ -1,0 +1,38 @@
+{
+  "name": "aqua-springboard-contracts",
+  "version": "0.1.0",
+  "dependencies": {
+    "dotenv": "^10.0.0",
+    "hardhat": "^2.6.0"
+  },
+  "devDependencies": {
+    "@types/node": "^16.6.1",
+    "prettier": "^2.3.2",
+    "prettier-plugin-solidity": "^1.0.0-beta.17",
+    "solhint": "^3.3.6"
+  },
+  "scripts": {
+    "compile": "hardhat compile",
+    "test": "hardhat compile && hardhat test",
+    "lint": "npm run lint:sol && yarn npm run lint:ts",
+    "lint:sol": "solhint \"contracts/**/*.sol\"",
+    "lint:ts": "eslint --max-warnings 0 .",
+    "prettier": "prettier --write \"contracts/**/*.sol\" --write && prettier \"**/*.ts\" --write && prettier \"tasks/*.js\"",
+    "precommit": "tsc --noEmit && yarn prettier && yarn lint && yarn test",
+    "coverage": "hardhat compile && hardhat coverage",
+    "flatten": "./tasks/flatten.sh",
+    "deploy:rinkeby": "hardhat deploy --network rinkeby --tags AQUA",
+    "deploy:xdai": "hardhat deploy --network xdai --tags AQUA"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cryptonative-ch/aqua-springboard-contracts.git"
+  },
+  "keywords": [],
+  "author": "Adam Azad <adam@adamazad.com> (https://adamazad.com/)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cryptonative-ch/aqua-springboard-contracts/issues"
+  },
+  "homepage": "https://github.com/cryptonative-ch/aqua-springboard-contracts#readme"
+}
